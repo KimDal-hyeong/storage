@@ -1,6 +1,6 @@
 <html>
     <body>
-        <h1 style="text-align: center; margin-top: 100px;">잠시만 기다려주세요...</h1>
+        <h1 id="code" style="text-align: center; margin-top: 100px;"></h1>
         <script>
             function getQueryVariable(variable) {
                 var query = window.location.search.substring(1);
@@ -13,12 +13,7 @@
                 }
                 console.log('Query variable %s not found', variable);
             }
-
-            setInterval(function() {
-                opener.postMessage({
-                    code: getQueryVariable('code'),
-                }, '*');
-            },1000);
+            document.getElementById('code').innerText = getQueryVariable('code');
         </script>
     </body>
 </html>
